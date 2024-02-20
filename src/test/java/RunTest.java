@@ -25,9 +25,28 @@ public class RunTest {
     }
 
     @Test
+    public void negativeTestBubbleSort() {
+        int[] unsortedArr = {7, 15, 3, 9, 22, 8, 16, 4, 11, 19};
+        int[] sortedArr = {3, 4, 6, 8, 9, 11, 15, 16, 19, 22};
+
+        bubbleSort(unsortedArr);
+
+        Assertions.assertArrayEquals(sortedArr, unsortedArr);
+    }
+
+    @Test
     public void testConvertToFarenheit() {
         int celsius = 25;
         float expected = 77.0F;
+        float farenheit = convertToFarenheit(celsius);
+
+        Assertions.assertEquals(expected, farenheit);
+    }
+
+    @Test
+    public void negativeTestConvertToFarenheit() {
+        int celsius = 25;
+        float expected = 70.0F;
         float farenheit = convertToFarenheit(celsius);
 
         Assertions.assertEquals(expected, farenheit);
