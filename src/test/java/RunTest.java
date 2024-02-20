@@ -30,10 +30,30 @@ public class RunTest {
     }
 
     @Test
+    public void negativeTestBinarySearch_existing() {
+        int value = 7;
+
+        int expected = 1;
+        int actual = binSearch(arr, value);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testBinarySearch_nonExisting() {
         int value = 99;
 
         int expected = -1;
+        int actual = binSearch(arr, value);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void negativeTestBinarySearch_nonExisting() {
+        int value = 99;
+
+        int expected = 5;
         int actual = binSearch(arr, value);
 
         Assertions.assertEquals(expected, actual);
