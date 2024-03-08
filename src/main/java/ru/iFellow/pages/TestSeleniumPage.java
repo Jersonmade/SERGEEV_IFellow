@@ -9,15 +9,13 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class TestSeleniumPage {
     public static SelenideElement taskStatus = $x("//span[@class='status-view']//preceding-sibling::span");
-    public static SelenideElement taskVersion = $x("//span[@id='fixfor-val']");  //span[@id='fixVersions-field']
+    public static SelenideElement taskVersion = $x("//span[@id='fixfor-val']");
     public static SelenideElement inputText = $x("//input[@id='quickSearchInput']");
-//    public static SelenideElement selectedTask = $x("//div[@class='quick-search-result-group']/ul/li[2]");
 
     public void searchTestSelenium(){
         inputText.click();
         inputText.setValue(ConfProperties.getProperty("taskname"));
         inputText.sendKeys(Keys.ENTER);
-//        selectedTask.click();
     }
 
     public void collectionStatus(){
