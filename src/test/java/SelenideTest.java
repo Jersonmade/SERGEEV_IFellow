@@ -3,7 +3,6 @@ import ru.iFellow.pages.CreateBugPage;
 import ru.iFellow.pages.LoginPage;
 import ru.iFellow.pages.MainPage;
 import ru.iFellow.pages.TestSeleniumPage;
-import utils.ConfProperties;
 import webhooks.WebHook;
 
 public class SelenideTest extends WebHook {
@@ -14,8 +13,8 @@ public class SelenideTest extends WebHook {
 
     @Test
     public void loginTest() {
-        loginPage.inputLog(ConfProperties.getProperty("login"));
-        loginPage.inputPass(ConfProperties.getProperty("password"));
+        loginPage.inputLog();
+        loginPage.inputPass();
         loginPage.clickBtn();
         mainPage.clickProjects();
         mainPage.checkTasks();
