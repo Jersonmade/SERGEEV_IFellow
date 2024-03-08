@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Test;
-import pages.CreateBugPage;
-import pages.LoginPage;
-import pages.MainPage;
-import pages.TestSeleniumPage;
+import ru.iFellow.pages.CreateBugPage;
+import ru.iFellow.pages.LoginPage;
+import ru.iFellow.pages.MainPage;
+import ru.iFellow.pages.TestSeleniumPage;
 import utils.ConfProperties;
 import webhooks.WebHook;
 
