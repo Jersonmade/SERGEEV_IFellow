@@ -9,7 +9,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class InitDriver {
     @Дано("Открываем сайт {string}")
-    public void открываем_сайт(String url) {
+    public void initBrowser(String url) {
         open(ConfProperties.getProperty("url"));
         getWebDriver().manage().window().maximize();
         Configuration.timeout = 10000;

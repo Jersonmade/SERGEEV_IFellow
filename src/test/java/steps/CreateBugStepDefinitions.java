@@ -8,42 +8,42 @@ public class CreateBugStepDefinitions {
     private final CreateBugPage createBugPage = new CreateBugPage();
 
     @И("пользователь нажимает на кнопку \"Создать баг\"")
-    public void пользователь_нажимает_на_кнопку_Создать_баг() {
+    public void pressCreateBugBtn() {
         createBugPage.clickCreateBugLink();
     }
 
     @И("пользователь вводит тему задачи")
-    public void пользователь_вводит_тему_задачи() {
+    public void enterTopic() {
         createBugPage.inputTopic();
     }
 
     @И("пользователь заполняет описание задачи")
-    public void пользователь_заполняет_описание_задачи() {
+    public void fillDesc() {
         createBugPage.fillDescription();
     }
 
     @И("пользователь заполняет поле окружения")
-    public void пользователь_заполняет_поле_окружения() {
+    public void fillEnvField() {
         createBugPage.fillEnvironmentField();
     }
 
     @И("пользователь создает задачу")
-    public void пользователь_создает_задачу() {
+    public void makeBug() {
         createBugPage.createBug();
     }
 
     @И("пользователь завершает тестирование задачи")
-    public void пользователь_завершает_тестирование_задачи() {
+    public void makeDoneTest() {
         createBugPage.createDoneTest();
     }
 
     @И("пользователь переводит задачу в статус \"готово\"")
-    public void пользователь_прогрессирует_бизнес_процесс() {
+    public void switchTaskStatus() {
         createBugPage.businessProgress();
     }
 
     @Тогда("пользователь проверяет созданную задачу")
-    public void пользователь_проверяет_созданную_задачу() {
+    public void verifyBug() {
         createBugPage.checkBug();
     }
 }

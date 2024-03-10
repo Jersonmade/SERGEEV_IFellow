@@ -7,12 +7,12 @@ public class MainStepDefinitions {
     private final MainPage mainPage = new MainPage();
 
     @И("пользователь нажимает на проект \"Test\"")
-    public void пользователь_нажимает_на_проект() {
+    public void pressProjects() {
         mainPage.clickProjects();
     }
 
     @И("пользователь проверяет задачи в проекте")
-    public void пользователь_проверяет_задачи() {
+    public void verifyTasks() {
         mainPage.checkTasks();
     }
 }

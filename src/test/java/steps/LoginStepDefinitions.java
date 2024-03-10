@@ -8,17 +8,17 @@ public class LoginStepDefinitions {
     private final LoginPage loginPage = new LoginPage();
 
     @Когда("пользователь вводит логин")
-    public void пользователь_вводит_логин() {
+    public void enterLogin() {
         loginPage.inputLog();
     }
 
     @И("пользователь вводит пароль")
-    public void пользователь_вводит_пароль() {
+    public void enterPass() {
         loginPage.inputPass();
     }
 
     @И("пользователь нажимает кнопку \"Войти\"")
-    public void пользователь_нажимает_кнопку() {
+    public void pressButton() {
         loginPage.clickBtn();
     }
 }
