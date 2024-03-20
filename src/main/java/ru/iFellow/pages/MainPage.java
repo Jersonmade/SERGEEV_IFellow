@@ -1,6 +1,7 @@
 package ru.iFellow.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.regex.Matcher;
@@ -14,11 +15,13 @@ public class MainPage {
     public static SelenideElement quantity = $x("//div[@class='showing']");
     public static SelenideElement allTasks = $x("//div[@class='showing']");
 
+    @Step("Переход в раздел \"Задачи\" и сбор кол-ва задач")
     public void clickProjects() {
         projectsTab.click();
         testProjects.click();
     }
 
+    @Step("Проверка соотвествия кол-ва задач")
     public void checkTasks(){
         String howMany = quantity.getText();
         Pattern pattern = Pattern.compile("\\d+$");

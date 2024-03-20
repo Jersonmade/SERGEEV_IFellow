@@ -1,9 +1,11 @@
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Test;
 import ru.iFellow.pages.CreateBugPage;
 import ru.iFellow.pages.LoginPage;
 import ru.iFellow.pages.MainPage;
 import ru.iFellow.pages.TestSeleniumPage;
-import utils.ConfProperties;
+import ru.iFellow.utils.ConfProperties;
 import webhooks.WebHook;
 
 public class SelenideTest extends WebHook {
@@ -12,6 +14,8 @@ public class SelenideTest extends WebHook {
     private final TestSeleniumPage testSeleniumPage = new TestSeleniumPage();
     private final CreateBugPage createBugPage = new CreateBugPage();
 
+    @Epic(value = "Jira")
+    @Feature(value = "Авторизация")
     @Test
     public void loginTest() {
         loginPage.inputLog(ConfProperties.getProperty("login"));
