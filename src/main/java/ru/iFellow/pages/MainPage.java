@@ -10,12 +10,12 @@ import java.util.regex.Pattern;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MainPage {
-    public static SelenideElement projectsTab = $x("//a[@id='browse_link']");
-    public static SelenideElement testProjects = $x("//a[@id='admin_main_proj_link_lnk']");
-    public static SelenideElement quantity = $x("//div[@class='showing']");
-    public static SelenideElement allTasks = $x("//div[@class='showing']");
+    public static SelenideElement projectsTab = $x("//a[@id='browse_link']").as("Кнопка \"Проекты\"");
+    public static SelenideElement testProjects = $x("//a[@id='admin_main_proj_link_lnk']").as("Проект \"Test\"");
+    public static SelenideElement quantity = $x("//div[@class='showing']").as("Количество");
+    public static SelenideElement allTasks = $x("//div[@class='showing']").as("Все задачи");
 
-    @Step("Переход в раздел \"Задачи\" и сбор кол-ва задач")
+    @Step("Переход в раздел \"Проекты\" и сбор кол-ва задач")
     public void clickProjects() {
         projectsTab.click();
         testProjects.click();

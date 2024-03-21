@@ -10,15 +10,15 @@ import java.time.Duration;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CreateBugPage {
-    public static SelenideElement createBugLink = $x("//a[@id ='create_link']");
-    public static SelenideElement topic = $x("//input[@id='summary']");
-    public static SelenideElement description = $x("//body[@id='tinymce' and @data-id='mce_0']/child::p");
-    public static SelenideElement environment = $x("//body[@id='tinymce' and @data-id='mce_6']/child::p");
-    public static SelenideElement createBtn = $x("//input[@id='create-issue-submit']");
-    public static SelenideElement business = $x("//span[contains(text(), 'Бизнес-процесс')and @class='dropdown-text']/..");
-    public static SelenideElement complete = $x("//span[contains(text(), 'Выполнено')and @class='trigger-label']/..");
-    public static SelenideElement message = $x("//a[@class = 'issue-created-key issue-link']");
-    public static SelenideElement status = $x("//span[@class='status-view']//preceding-sibling::span");
+    public static SelenideElement createBugLink = $x("//a[@id ='create_link']").as("Кнопка создания \"Бага\"");
+    public static SelenideElement topic = $x("//input[@id='summary']").as("Поле тема");
+    public static SelenideElement description = $x("//body[@id='tinymce' and @data-id='mce_0']/child::p").as("Поле описание");
+    public static SelenideElement environment = $x("//body[@id='tinymce' and @data-id='mce_6']/child::p").as("Поле окружение");
+    public static SelenideElement createBtn = $x("//input[@id='create-issue-submit']").as("Кнопка создания \"Бага\"");
+    public static SelenideElement business = $x("//span[contains(text(), 'Бизнес-процесс')and @class='dropdown-text']/..").as("Бизнес-процесс");
+    public static SelenideElement complete = $x("//span[contains(text(), 'Выполнено')and @class='trigger-label']/..").as("Выполнено");
+    public static SelenideElement message = $x("//a[@class = 'issue-created-key issue-link']").as("Всплывающее сообщение создания бага");
+    public static SelenideElement status = $x("//span[@class='status-view']//preceding-sibling::span").as("Статус \"Бага\"");
 
     @Step("Нажатие на кнопку \"Создать\"")
     public void clickCreateBugLink() {
