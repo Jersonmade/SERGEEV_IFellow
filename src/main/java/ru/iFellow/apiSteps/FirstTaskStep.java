@@ -1,8 +1,13 @@
 package ru.iFellow.apiSteps;
 
+import io.cucumber.java.ru.Дано;
+import io.cucumber.java.ru.Затем;
+import io.cucumber.java.ru.Тогда;
 import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.jupiter.api.Assertions;
+import ru.iFellow.utils.ConfProperties;
 
 import static io.restassured.RestAssured.given;
 
@@ -15,8 +20,13 @@ public class FirstTaskStep {
     public static int lastEpisodeMortyIndex;
     public static String lastCharacterFromLastEpisode;
     public static int lastCharacterFromLastEpisodeIndex;
+    String baseUri = ConfProperties.getProperty("morty.base.uri");
+    String getUri = ConfProperties.getProperty("morty.get.morty.uri");
+    int statusCode = Integer.parseInt(ConfProperties.getProperty("get.status.code"));
 
-    public void getCharacter(String baseUri, String getUri, int statusCode) {
+    @Дано("Получение информации о рассе и локации Морти")
+    public void getCharacter() {
+
         Response response = given()
                 .baseUri(baseUri)
                 .when()
@@ -35,7 +45,9 @@ public class FirstTaskStep {
         lastEpisodeMortyIndex = episodesArray.length();
     }
 
-    public void getIdLastCharacterFromLastEpisode(String baseUri, int statusCode) {
+    @Затем("Получение id последнего персонажа")
+    public void getIdLastCharacterFromLastEpisode() {
+
         Response response = given()
                 .baseUri(baseUri)
                 .when()
@@ -51,7 +63,9 @@ public class FirstTaskStep {
         lastCharacterFromLastEpisodeIndex = Integer.parseInt(parts[parts.length - 1]);
     }
 
-    public void getLocationAndSpeciesLastCharacter(String baseUri, int statusCode) {
+    @Затем("Получение информации и рассе и локации последнего персонажа")
+    public void getLocationAndSpeciesLastCharacter() {
+
         Response response = given()
                 .baseUri(baseUri)
                 .when()
@@ -64,5 +78,15 @@ public class FirstTaskStep {
         speciesLastCharacter = new JSONObject(response.getBody().asString()).get("species").toString();
         JSONObject locationLastCharacter = new JSONObject(response.getBody().asString()).getJSONObject("location");
         locationNameLastCharacter = locationLastCharacter.get("name").toString();
+    }
+
+    @Тогда("Проверка рассы")
+    public void verifySpecies() {
+        Assertions.assertEquals(speciesMorty, speciesLastCharacter);
+    }
+
+    @Тогда("Проверка локации")
+    public void verifyLocation() {
+        Assertions.assertFalse(Boolean.parseBoolean(locationNameMorty), locationNameLastCharacter);
     }
 }

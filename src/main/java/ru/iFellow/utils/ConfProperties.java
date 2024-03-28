@@ -1,4 +1,4 @@
-package utils;
+package ru.iFellow.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
